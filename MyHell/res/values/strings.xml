@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">MyHell</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Hello world! This is My Hell</string>
     <string name="action_settings">Settings</string>
 
 </resources>
