@@ -1,6 +1,7 @@
 package com.dharmik.myhell;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -69,25 +70,35 @@ public class MainActivity extends ActionBarActivity {
 		int duration = Toast.LENGTH_SHORT;
 
 		switch (view.getId()) {
+		case (R.id.catShopping):
+	    	text = "Shopping!";
+	    	GlobalVariables.CategoryId=1;
+	    break;
 	    case (R.id.catRecharge):
 	    	text = "Recharge!";
-	    break;
-	    case (R.id.catShopping):
-	    	text = "Shopping!";
+	    	GlobalVariables.CategoryId=2;
 	    break;
 	    case (R.id.catFoodAndDrinks):
 	    	text = "Food And Drinks!";
+	    	GlobalVariables.CategoryId=3;
 	    break;
 	    case (R.id.catTravelling):
 	    	text = "Travelling!";
+	    	GlobalVariables.CategoryId=4;
 	    break;
 	    case (R.id.catOthers):
 	    	text = "Others!";
+	    	GlobalVariables.CategoryId=5;
 	    break;
 	    }
 		
+		/*
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
+		*/
+
+		Intent intent = new Intent(this,AmountActivity.class);
+		startActivity(intent);
 	}
 
 }
