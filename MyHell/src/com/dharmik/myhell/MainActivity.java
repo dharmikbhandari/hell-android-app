@@ -1,15 +1,15 @@
 package com.dharmik.myhell;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -61,5 +61,33 @@ public class MainActivity extends ActionBarActivity {
             return rootView;
         }
     }
+    
+    public void getCategory(View view)
+	{
+		Context context = getApplicationContext();
+		CharSequence text="Category";
+		int duration = Toast.LENGTH_SHORT;
+
+		switch (view.getId()) {
+	    case (R.id.catRecharge):
+	    	text = "Recharge!";
+	    break;
+	    case (R.id.catShopping):
+	    	text = "Shopping!";
+	    break;
+	    case (R.id.catFoodAndDrinks):
+	    	text = "Food And Drinks!";
+	    break;
+	    case (R.id.catTravelling):
+	    	text = "Travelling!";
+	    break;
+	    case (R.id.catOthers):
+	    	text = "Others!";
+	    break;
+	    }
+		
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
+	}
 
 }
