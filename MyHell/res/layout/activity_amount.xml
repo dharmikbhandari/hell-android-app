@@ -4,5 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.dharmik.myhell.AmountActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/txtAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" 
+            android:hint="Amount">
+
+            <requestFocus />
+        </EditText>
+
+         <EditText
+            android:id="@+id/txtRemark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine" 
+            android:hint="Remarks"/>
+        
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save" 
+            android:onClick="sendAmount"/>
+
+       
+
+    </LinearLayout>
+
+</FrameLayout>
 
