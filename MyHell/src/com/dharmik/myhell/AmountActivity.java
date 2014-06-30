@@ -1,5 +1,7 @@
 package com.dharmik.myhell;
 
+import java.sql.Date;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -77,15 +79,41 @@ public class AmountActivity extends ActionBarActivity {
 	public void sendAmount(View view)
 	{
 		Context context = getApplicationContext();
-		CharSequence text="Category";
+		//CharSequence text="Category";
 		int duration = Toast.LENGTH_LONG;
 		
 		TextView txtAmount=(TextView)findViewById(R.id.txtAmount);
 		TextView txtRemarks=(TextView)findViewById(R.id.txtRemark);
 		
-		text="CategoryId:"+ GlobalVariables.CategoryId +" || Amount:" + txtAmount.getText().toString() +  " || Remarks:" + txtRemarks.getText().toString();
-				
-	    Toast toast = Toast.makeText(context, text, duration);
+		//text="CategoryId:"+ GlobalVariables.CategoryId +" || Amount:" + txtAmount.getText().toString() +  " || Remarks:" + txtRemarks.getText().toString();
+		
+		
+		Expense expense=new Expense();
+		expense.setCategoryId(GlobalVariables.CategoryId);
+		
+		if(txtAmount.getText().toString()  == null || txtAmount.getText().toString().length() > 0) {
+
+			expense.setAmount(0.0);
+
+			} 
+			else {
+
+				expense.setAmount(Double.parseDouble(txtAmount.getText().toString()));
+
+			}
+		
+		expense.setRemark(txtRemarks.getText().toString());
+		expense.setUserId(1);
+		expense.setCreatedDate(new Date(0));
+		
+		
+		HellSqlLiteHelper db=new HellSqlLiteHelper(context);
+		
+		db.InsertExpense(expense);
+		
+	 	 
+		
+	    Toast toast = Toast.makeText(context,"Saved...", duration);
 		toast.show();
 		
 		txtAmount.setText("");
