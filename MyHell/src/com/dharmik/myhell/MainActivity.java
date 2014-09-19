@@ -42,8 +42,15 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+        	Intent intent = new Intent(this,ExpenseListActivity.class);
+    		startActivity(intent);
+            //return true;
         }
+        
+        if(id==R.id.action_deleteall){
+        	DeleteAll();
+        }
+       
         return super.onOptionsItemSelected(item);
     }
 
@@ -100,5 +107,17 @@ public class MainActivity extends ActionBarActivity {
 		Intent intent = new Intent(this,AmountActivity.class);
 		startActivity(intent);
 	}
+    
+    public void DeleteAll(){
+    
+    	Context context = getApplicationContext();
+    	
+    	HellSqlLiteHelper db=new HellSqlLiteHelper(context);
+    	
+    	db.DeleteAll();
+    	
+    	Toast toast = Toast.makeText(context,"Deleted...", Toast.LENGTH_LONG);
+		toast.show();
+    }
 
 }

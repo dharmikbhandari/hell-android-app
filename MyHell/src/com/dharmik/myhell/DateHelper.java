@@ -23,6 +23,13 @@ public class DateHelper {
 
 			    return utcTime;
 			}
+			
+			public static Date GetCurrentUTCDate()
+			{
+				 final SimpleDateFormat sdf = new SimpleDateFormat(DATEFORMAT);
+				    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+				    return new Date();
+			}
 
 			public static Date StringDateToDate(String StrDate)
 			{

@@ -91,7 +91,7 @@ public class AmountActivity extends ActionBarActivity {
 		Expense expense=new Expense();
 		expense.setCategoryId(GlobalVariables.CategoryId);
 		
-		if(txtAmount.getText().toString()  == null || txtAmount.getText().toString().length() > 0) {
+		if(txtAmount.getText().toString()  == null || txtAmount.getText().toString().length() < 0) {
 
 			expense.setAmount(0.0);
 
@@ -104,7 +104,7 @@ public class AmountActivity extends ActionBarActivity {
 		
 		expense.setRemark(txtRemarks.getText().toString());
 		expense.setUserId(1);
-		expense.setCreatedDate(new Date(0));
+		expense.setCreatedDate(new Date(1, 1, 1));
 		
 		
 		HellSqlLiteHelper db=new HellSqlLiteHelper(context);

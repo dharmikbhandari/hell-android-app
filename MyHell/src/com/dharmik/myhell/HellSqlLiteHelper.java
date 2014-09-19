@@ -200,4 +200,16 @@ public class HellSqlLiteHelper extends SQLiteOpenHelper {
         Log.d("DeleteExpense", expense.toString());
  
     }
+    
+    public void DeleteAll(){
+    	// 1. get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        // 2. delete
+        db.execSQL("DELETE FROM "+ TABLE_NAME);
+ 
+        // 3. close
+        db.close();
+    }
+    
 }

@@ -26,6 +26,10 @@
             android:name="com.dharmik.myhell.AmountActivity"
             android:label="@string/title_activity_amount" >
         </activity>
+        <activity
+            android:name="com.dharmik.myhell.ExpenseListActivity"
+            android:label="@string/title_activity_expense_list" >
+        </activity>
     </application>
 
 </manifest>
